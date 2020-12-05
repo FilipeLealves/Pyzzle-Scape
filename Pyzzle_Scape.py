@@ -7,67 +7,74 @@ py.init()
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 #----------Sounds----------#
-pop = py.mixer.Sound(file='data/pop.wav')
-spark = py.mixer.Sound(file='data/power_spark.wav')
-sucked = py.mixer.Sound(file='data/getting-sucked.ogg')
-typing = py.mixer.Sound(file='data/keyboard-typing.ogg')
-click = py.mixer.Sound(file='data/click.ogg')
-mouse = py.mixer.Sound(file='data/motion_mouse.ogg')
-appear = py.mixer.Sound(file='data/appear.ogg')
-chest = py.mixer.Sound(file='data/chest.ogg')
-death_player = py.mixer.Sound(file='data/hurt.ogg')
-handle = py.mixer.Sound(file='data/handle.ogg')
-ring = py.mixer.Sound(file='data/phone-ringing.ogg')
-request = py.mixer.Sound(file='data/request.ogg')
-argue = py.mixer.Sound(file='data/argue.ogg')
-click_switch = py.mixer.Sound(file='data/click_switch.ogg')
-dial = py.mixer.Sound(file='data/dial.ogg')
+if getattr(sys, 'frozen', False):
+    wd = sys._MEIPASS
+else:
+    wd = ''
 
-py.mixer.music.load('data/stage_2.ogg')
+#image = loadImage(os.path.join(wd,'folder',"file_name.jpg"))
+
+pop = py.mixer.Sound(os.path.join(wd,'data','pop.wav'))
+spark = py.mixer.Sound(os.path.join(wd,'data','power_spark.wav'))
+sucked = py.mixer.Sound(os.path.join(wd,'data','getting-sucked.ogg'))
+typing = py.mixer.Sound(os.path.join(wd,'data','keyboard-typing.ogg'))
+click = py.mixer.Sound(os.path.join(wd,'data','click.ogg'))
+mouse = py.mixer.Sound(os.path.join(wd,'data','motion_mouse.ogg'))
+appear = py.mixer.Sound(os.path.join(wd,'data','appear.ogg'))
+chest = py.mixer.Sound(os.path.join(wd,'data','chest.ogg'))
+death_player = py.mixer.Sound(os.path.join(wd,'data','hurt.ogg'))
+handle = py.mixer.Sound(os.path.join(wd,'data','handle.ogg'))
+ring = py.mixer.Sound(os.path.join(wd,'data','phone-ringing.ogg'))
+request = py.mixer.Sound(os.path.join(wd,'data','request.ogg'))
+argue = py.mixer.Sound(os.path.join(wd,'data','argue.ogg'))
+click_switch = py.mixer.Sound(os.path.join(wd,'data','click_switch.ogg'))
+dial = py.mixer.Sound(os.path.join(wd,'data','dial.ogg'))
+
+py.mixer.music.load(os.path.join(wd,'data','stage_2.ogg'))
 py.mixer.music.set_volume(0.4)
 py.mixer.music.play(-1)
 
 #-------Load Images--------#
 load = py.image.load
 
-walkRight = [load('data/R1.png'),load('data/R2.png'),load('data/R3.png'),load('data/R4.png'),load('data/R5.png'),load('data/R6.png'),load('data/R7.png'),load('data/R8.png'),load('data/R9.png')]
-walkLeft = [load('data/L1.png'),load('data/L2.png'),load('data/L3.png'),load('data/L4.png'),load('data/L5.png'),load('data/L6.png'),load('data/L7.png'),load('data/L8.png'),load('data/L9.png')]
-walkUp = [load('data/U1.png'),load('data/U2.png'),load('data/U3.png'),load('data/U4.png'),load('data/U5.png'),load('data/U6.png'),load('data/U7.png'),load('data/U8.png'),load('data/U9.png')]
-walkDown = [load('data/D1.png'),load('data/D2.png'),load('data/D3.png'),load('data/D1.png'),load('data/D2.png'),load('data/D3.png'),load('data/D1.png'),load('data/D2.png'),load('data/D3.png')]
-Stand = [load('data/S1.png'),load('data/S2.png'),load('data/S3.png'),load('data/S4.png'),load('data/S5.png'),load('data/S6.png'),load('data/S6.png'),load('data/S7.png'),load('data/S7.png')]
-fullBlack = [load('data/full_black-0.png'),load('data/full_black-1.png'),load('data/full_black-2.png'),load('data/full_black-3.png'),load('data/full_black-4.png'),load('data/full_black-5.png'),load('data/full_black-6.png'),load('data/full_black-7.png'),load('data/full_black-8.png')]
-sugado = [load('data/sugado1.png'),load('data/sugado2.png'),load('data/sugado3.png'),load('data/sugado4.png'),load('data/sugado5.png'),load('data/sugado6.png'),load('data/sugado7.png'),load('data/sugado8.png'),load('data/sugado9.png'),load('data/sugado10.png')]
-player_back = load('data/U1.png')
-stage_1_on = load('data/stage_1_on.png')
-stage_1_off = load('data/stage_1_off.png')
-stage_2 = load('data/stage_2.png')
-stage_google = load('data/stage_2_1.png')
-stage_baidu = load('data/baidu_BG.png')
-stage_lol = load('data/lol_BG-1-1.png')
-stage_pygame = load('data/pycharm_bg-1.png')
-stand = load('data/stand.png')
-start = load('data/start-2.png')
-stage2_BG = load('data/main_lobby_1.png')
-chair = load('data/chair.png')
-jogar_img = load('data/jogar.png')
-comandos_img = load('data/comandos_img.png')
-comandos_start = load('data/comandos.png')
-sair_img = load('data/sair_img.png')
-voltar_img = load('data/voltar.png')
-eraser_blue = load('data/blue.png')
-hide_up = load('data/hide_up.png')
-door_img = load('data/door1.png')
-google_dirty = load('data/google_dirty.png')
-baidu_dirty = load('data/baidu_dirty.png')
-lol_dirty = load('data/lol_dirty.png')
-py_dirty = load('data/py_dirty.png')
-heart_1 = load('data/heart-1.png')
-heart_2 = load('data/heart-2.png')
-heart_3 = load('data/heart-3.png')
-heart_4 = load('data/heart-4.png')
-set_icon = load('data/set_icon.png')
-set_boss_talk = load('data/screen_boss.png')
-set_self_talk = load('data/screen_self.png')
+walkRight = [load(os.path.join(wd,'data','R1.png')),load(os.path.join(wd,'data','R2.png')),load(os.path.join(wd,'data','R3.png')),load(os.path.join(wd,'data','R4.png')),load(os.path.join(wd,'data','R5.png')),load(os.path.join(wd,'data','R6.png')),load(os.path.join(wd,'data','R7.png')),load(os.path.join(wd,'data','R8.png')),load(os.path.join(wd,'data','R9.png'))]
+walkLeft = [load(os.path.join(wd,'data','L1.png')),load(os.path.join(wd,'data','L2.png')),load(os.path.join(wd,'data','L3.png')),load(os.path.join(wd,'data','L4.png')),load(os.path.join(wd,'data','L5.png')),load(os.path.join(wd,'data','L6.png')),load(os.path.join(wd,'data','L7.png')),load(os.path.join(wd,'data','L8.png')),load(os.path.join(wd,'data','L9.png'))]
+walkUp = [load(os.path.join(wd,'data','U1.png')),load(os.path.join(wd,'data','U2.png')),load(os.path.join(wd,'data','U3.png')),load(os.path.join(wd,'data','U4.png')),load(os.path.join(wd,'data','U5.png')),load(os.path.join(wd,'data','U6.png')),load(os.path.join(wd,'data','U7.png')),load(os.path.join(wd,'data','U8.png')),load(os.path.join(wd,'data','U9.png'))]
+walkDown = [load(os.path.join(wd,'data','D1.png')),load(os.path.join(wd,'data','D2.png')),load(os.path.join(wd,'data','D3.png')),load(os.path.join(wd,'data','D1.png')),load(os.path.join(wd,'data','D2.png')),load(os.path.join(wd,'data','D3.png')),load(os.path.join(wd,'data','D1.png')),load(os.path.join(wd,'data','D2.png')),load(os.path.join(wd,'data','D3.png'))]
+Stand = [load(os.path.join(wd,'data','S1.png')),load(os.path.join(wd,'data','S2.png')),load(os.path.join(wd,'data','S3.png')),load(os.path.join(wd,'data','S4.png')),load(os.path.join(wd,'data','S5.png')),load(os.path.join(wd,'data','S6.png')),load(os.path.join(wd,'data','S6.png')),load(os.path.join(wd,'data','S7.png')),load(os.path.join(wd,'data','S7.png'))]
+fullBlack = [load(os.path.join(wd,'data','full_black-0.png')),load(os.path.join(wd,'data','full_black-1.png')),load(os.path.join(wd,'data','full_black-2.png')),load(os.path.join(wd,'data','full_black-3.png')),load(os.path.join(wd,'data','full_black-4.png')),load(os.path.join(wd,'data','full_black-5.png')),load(os.path.join(wd,'data','full_black-6.png')),load(os.path.join(wd,'data','full_black-7.png')),load(os.path.join(wd,'data','full_black-8.png'))]
+sugado = [load(os.path.join(wd,'data','sugado1.png')),load(os.path.join(wd,'data','sugado2.png')),load(os.path.join(wd,'data','sugado3.png')),load(os.path.join(wd,'data','sugado4.png')),load(os.path.join(wd,'data','sugado5.png')),load(os.path.join(wd,'data','sugado6.png')),load(os.path.join(wd,'data','sugado7.png')),load(os.path.join(wd,'data','sugado8.png')),load(os.path.join(wd,'data','sugado9.png')),load(os.path.join(wd,'data','sugado10.png'))]
+player_back = load(os.path.join(wd,'data','U1.png'))
+stage_1_on = load(os.path.join(wd,'data','stage_1_on.png'))
+stage_1_off = load(os.path.join(wd,'data','stage_1_off.png'))
+stage_2 = load(os.path.join(wd,'data','stage_2.png'))
+stage_google = load(os.path.join(wd,'data','stage_2_1.png'))
+stage_baidu = load(os.path.join(wd,'data','baidu_BG.png'))
+stage_lol = load(os.path.join(wd,'data','lol_BG-1-1.png'))
+stage_pygame = load(os.path.join(wd,'data','pycharm_bg-1.png'))
+stand = load(os.path.join(wd,'data','stand.png'))
+start = load(os.path.join(wd,'data','start-2.png'))
+stage2_BG = load(os.path.join(wd,'data','main_lobby_1.png'))
+chair = load(os.path.join(wd,'data','chair.png'))
+jogar_img = load(os.path.join(wd,'data','jogar.png'))
+comandos_img = load(os.path.join(wd,'data','comandos_img.png'))
+comandos_start = load(os.path.join(wd,'data','comandos.png'))
+sair_img = load(os.path.join(wd,'data','sair_img.png'))
+voltar_img = load(os.path.join(wd,'data','voltar.png'))
+eraser_blue = load(os.path.join(wd,'data','blue.png'))
+hide_up = load(os.path.join(wd,'data','hide_up.png'))
+door_img = load(os.path.join(wd,'data','door1.png'))
+google_dirty = load(os.path.join(wd,'data','google_dirty.png'))
+baidu_dirty = load(os.path.join(wd,'data','baidu_dirty.png'))
+lol_dirty = load(os.path.join(wd,'data','lol_dirty.png'))
+py_dirty = load(os.path.join(wd,'data','py_dirty.png'))
+heart_1 = load(os.path.join(wd,'data','heart-1.png'))
+heart_2 = load(os.path.join(wd,'data','heart-2.png'))
+heart_3 = load(os.path.join(wd,'data','heart-3.png'))
+heart_4 = load(os.path.join(wd,'data','heart-4.png'))
+set_icon = load(os.path.join(wd,'data','set_icon.png'))
+set_boss_talk = load(os.path.join(wd,'data','screen_boss.png'))
+set_self_talk = load(os.path.join(wd,'data','screen_self.png'))
 #------------Times---------------#
 current_time = py.time.get_ticks()
 
@@ -229,7 +236,7 @@ def collision_rect_lv1():
     py.draw.rect(screen, py.SRCALPHA,player, 1) #rect invisible
  
 class enemy(object):
-    enemy_r = load('data/enemy_c.png')
+    enemy_r = load(os.path.join(wd,'data','enemy_c.png'))
     enemy_l = py.transform.flip(enemy_r, True, False)
     def __init__(self, x, y, width, height, end):
         self.x = x
@@ -260,7 +267,7 @@ class enemy(object):
                 dino_rect.x += self.vel  
 
 class enemy2(object):
-    enemy_r = load('data/enemy_c.png')
+    enemy_r = load(os.path.join(wd,'data','enemy_c.png'))
     enemy_l = py.transform.flip(enemy_r, True, False)
     def __init__(self, x, y, width, height, end):
         self.x = x
@@ -292,7 +299,7 @@ class enemy2(object):
                 dino_rect_2.x += self.vel 
 
 class enemy3(object):
-    enemy_r = load('data/enemy_c.png')
+    enemy_r = load(os.path.join(wd,'data','enemy_c.png'))
     enemy_l = py.transform.flip(enemy_r, True, False)
     def __init__(self, x, y, width, height, end):
         self.x = x
@@ -323,7 +330,7 @@ class enemy3(object):
                 dino_rect_3.x += self.vel
 
 class enemy4(object):
-    enemy_r = load('data/enemy_c.png')
+    enemy_r = load(os.path.join(wd,'data','enemy_c.png'))
     enemy_l = py.transform.flip(enemy_r, True, False)
 
     def __init__(self, x, y, width, height, end):
@@ -358,7 +365,7 @@ class enemy4(object):
                 dino_rect_4.x += self.vel
                 
 class virus1(object):
-    virus_img_right = load('data/virus_3.png')
+    virus_img_right = load(os.path.join(wd,'data','virus_3.png'))
     virus_img_left = py.transform.flip(virus_img_right, True, False)
     def __init__(self, x, end):
         self.x = x
@@ -389,7 +396,7 @@ class virus1(object):
                 virus_1.y += 110
 
 class virus2(object):
-    virus_img_right = load('data/virus_4.png')
+    virus_img_right = load(os.path.join(wd,'data','virus_4.png'))
     virus_img_left = py.transform.flip(virus_img_right, True, True)
     def __init__(self, x, y, end):
         self.x = x
@@ -419,7 +426,7 @@ class virus2(object):
                 virus_2.y += self.vel           
 
 class virus3(object):
-    virus_img_right = load('data/virus-1.png')
+    virus_img_right = load(os.path.join(wd,'data','virus-1.png'))
     virus_img_left = py.transform.flip(virus_img_right, True, False)
     def __init__(self, x, y, end):
         self.x = x
@@ -450,7 +457,7 @@ class virus3(object):
                 virus_3.x, virus_3.y = 3 , 168
 
 class virus4(object):
-    virus_img_right = load('data/virus_2.png')
+    virus_img_right = load(os.path.join(wd,'data','virus_2.png'))
     virus_img_left = py.transform.flip(virus_img_right, True, False)
     def __init__(self, x, end):
         self.x = x
@@ -479,7 +486,7 @@ class virus4(object):
                 virus_4.x += self.vel
 
 class plataformV2(object):
-    platform = load('data/baidu_plataform.png')
+    platform = load(os.path.join(wd,'data','baidu_plataform.png'))
     def __init__(self, x, y, width, height, end):
         self.x = x
         self.y = y
@@ -507,7 +514,7 @@ class plataformV2(object):
                 self.vel = self.vel * -1
                 plataform_lv2.x += self.vel
 class plat1(object):
-    plat_img = load('data/plataform-lol-4.png')
+    plat_img = load(os.path.join(wd,'data','plataform-lol-4.png'))
     def __init__(self, y, end):
         self.y = y
         self.path = [y, end]
@@ -545,7 +552,7 @@ class plat1(object):
                     player_lv1.y = 524
 
 class plat2(object):
-    plat_img = load('data/plataform-lol-4.png')
+    plat_img = load(os.path.join(wd,'data','plataform-lol-4.png'))
     def __init__(self, y, end):
         self.y = y
         self.path = [y, end]
@@ -583,7 +590,7 @@ class plat2(object):
                     player_lv1.y = 200
 
 class plat3(object):
-    plat_img = load('data/plat_3.png')
+    plat_img = load(os.path.join(wd,'data','plat_3.png'))
     def __init__(self, y, end):
         self.y = y
         self.path = [y, end]
@@ -632,7 +639,7 @@ class Lazer1(object):
 
     def move(self):
         global health_player
-        lazer = load('data/lazer.png')
+        lazer = load(os.path.join(wd,'data','lazer.png'))
         screen.blit(lazer, (lazer1_rect.x, lazer1_rect.y))
         a1 = 45; a2 = 88; a3 = 131; a4 = 174; a5 = 217
         a6 = 260; a7 = 303; a8 = 346; a9 = 389; a10 = 432
@@ -809,7 +816,7 @@ class Lazer2(object):
 
     def move(self):
         global health_player
-        lazer = load('data/lazer.png')
+        lazer = load(os.path.join(wd,'data','lazer.png'))
         screen.blit(lazer, (lazer1_rect_2.x, lazer1_rect_2.y))
         a1 = 45; a2 = 88; a3 = 131; a4 = 174; a5 = 217
         a6 = 260; a7 = 303; a8 = 346; a9 = 389; a10 = 432
@@ -970,7 +977,7 @@ class Lazer2(object):
                 player_1.y -= 30
             
 class slideWindow(object):
-    window = load('data/window_up.png')
+    window = load(os.path.join(wd,'data','window_up.png'))
     def __init__(self, y, end):
         self.y = y
         self.path = [y, end]
@@ -1003,7 +1010,7 @@ class gradeUp(object):
         self.y = grade_rect.y
         self.path = [grade_rect.y, end]
         self.vel = 1
-        self.img = load('data/grade.png')
+        self.img = load(os.path.join(wd,'data','grade.png'))
     def draw(self, screen):
         self.move()
         screen.blit(self.img, (grade_rect.x,grade_rect.y))
@@ -1039,8 +1046,8 @@ class door1(object):
         #py.draw.rect(screen,(255,0,0), door_rect_1,1)
 
     def move(self):
-        alavanca_img_1 = load('data/alavanca-1.png')
-        alavanca_img_2 = load('data/alavanca-2.png')
+        alavanca_img_1 = load(os.path.join(wd,'data','alavanca-1.png'))
+        alavanca_img_2 = load(os.path.join(wd,'data','alavanca-2.png'))
         screen.blit(door_img, (door_rect_1.x - 1, door_rect_1.y - 5))
         keys = py.key.get_pressed()
         if player_lv1.colliderect(alavanca1):
@@ -1077,7 +1084,7 @@ class door1(object):
                     player_lv1.x += 11
 
 class door2(object):
-    door_2_img = load('data/door2.png')
+    door_2_img = load(os.path.join(wd,'data','door2.png'))
     def __init__(self, y, end):
         self.y = y
         self.path = [y, end]
@@ -1089,8 +1096,8 @@ class door2(object):
         self.move()
 
     def move(self):
-        alavanca_img_1 = load('data/alavanca-1.png')
-        alavanca_img_2 = load('data/alavanca-2.png')
+        alavanca_img_1 = load(os.path.join(wd,'data','alavanca-1.png'))
+        alavanca_img_2 = load(os.path.join(wd,'data','alavanca-2.png'))
         alavanca_img_flip_1 = py.transform.flip(alavanca_img_1, True, False)
         alavanca_img_flip_2 = py.transform.flip(alavanca_img_2, True, False)
 
@@ -1131,7 +1138,7 @@ class door2(object):
                         player_lv1.y -= 14                    
 
 class minion1(object):
-    minion_red_left = load('data/minion_blue.png')
+    minion_red_left = load(os.path.join(wd,'data','minion_blue.png'))
     minion_red_right = py.transform.flip(minion_red_left, True, False)
     def __init__(self, x, end):
         self.x = x
@@ -1174,8 +1181,8 @@ class minion1(object):
 class fireball(object):
     global current_time, health_player
 
-    minion_red = load('data/minion_red.png')
-    fire_ball_img = load('data/fire_ball.png')
+    minion_red = load(os.path.join(wd,'data','minion_red.png'))
+    fire_ball_img = load(os.path.join(wd,'data','fire_ball.png'))
     def __init__(self, x, end):
         self.x = x
         self.path = [x, end]
@@ -1373,7 +1380,7 @@ class fireball(object):
         
 
 class serra(object):
-    serra_img = [load('data/serra-1.png'),load('data/serra-2.png'),load('data/serra-3.png')]
+    serra_img = [load(os.path.join(wd,'data','serra-1.png')),load(os.path.join(wd,'data','serra-2.png')),load(os.path.join(wd,'data','serra-3.png'))]
 
     def __init__(self, x, end):
         self.x = x
@@ -1593,8 +1600,8 @@ class GameStages():
             screen.blit(chair,(550, 193))
 
     def level_4(self):
-        exclamation = load('data/exclamation.png')
-        left_p_img = load('data/L1.png')
+        exclamation = load(os.path.join(wd,'data','exclamation.png'))
+        left_p_img = load(os.path.join(wd,'data','L1.png'))
         global liberar, health_player, reset_to_0, next_level,time_a3,time_a4, time_fight ,grade_rect, can_open_grade, del_player, time_a1, time_a2, window_slide_up, window_slide_up_ok
         time_a1 += 1
         if time_a1 > 1 and time_a1 < 3:
@@ -1655,7 +1662,7 @@ class GameStages():
 
         screen_b_x = 68
         screen_b_y = 360
-        screen_boss = load('data/screen_boss_2.png')
+        screen_boss = load(os.path.join(wd,'data','screen_boss_2.png'))
 
         font_x, font_y = 154,436
 
@@ -1723,7 +1730,7 @@ class GameStages():
                 time_fight = True
         
         #-----------------TIME FIGHT------------------#
-        screen_boss_start_fight = load('data/screen_boss_4.png')
+        screen_boss_start_fight = load(os.path.join(wd,'data','screen_boss_4.png'))
         if time_fight:
             time_a3 += 1
             if time_a3 > 0 and time_a3 < 160:
@@ -1787,7 +1794,7 @@ class GameStages():
         
     def level_3(self):
         global jumpCount, isJumping
-        lol_eraser = load('data/lol_eraser.png')
+        lol_eraser = load(os.path.join(wd,'data','lol_eraser.png'))
         can_jump = False
         if player_lv1.colliderect(jump_on_1_2):
             can_jump = True
